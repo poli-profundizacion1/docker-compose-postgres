@@ -18,3 +18,16 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
 
+  server_pg_admin:
+    container_name: server_pg_admin
+    image: dpage/pgadmin4
+    ports:
+      - "9090:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    depends_on:
+      - server_postgres
+
+
+
