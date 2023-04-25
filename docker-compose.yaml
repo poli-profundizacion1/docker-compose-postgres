@@ -1,1 +1,20 @@
+version: '2.15.1'
+#networks:
+volumes:
+  pg_data:
+    name: pg_data  
+
+services:
+  server_postgres:
+    container_name: server_postgres
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: profundizacion
+    volumes:
+      - pg_data:/var/lib/postgresql/data
 
